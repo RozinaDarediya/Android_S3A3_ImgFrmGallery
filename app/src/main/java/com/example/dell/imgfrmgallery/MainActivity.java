@@ -11,6 +11,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
+    //A button will be displayed as the app will launch .
+    //Clicking on that button galary will be open and you can select any image
+    //That will be placed in the imageview.
+
 public class MainActivity extends AppCompatActivity {
 
     private static int RESULT_LOAD_IMG;
@@ -21,11 +26,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+    //picImag() will be called as we click on the button and lead us to galary and allow us to pick an image from galary
+    //startActivityForResult will load the image img
     public void pickImg(View view){
 
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent,RESULT_LOAD_IMG);
     }
+
+    //If we are picking up the image it will get the image from out image path and load into the imageview
+    // else it will show toast message saying we have not pick any image.
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
